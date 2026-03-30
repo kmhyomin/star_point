@@ -1,13 +1,9 @@
 import { useState } from "react";
-import "./App.css";
-import { FaStar } from "react-icons/fa";
+import { Star } from "../App";
 
-export const Star = ({ selected = false, onSelect = (f: any) => f }) => {
-  return <FaStar color={selected ? "red" : "grey"} onClick={onSelect} />;
-};
 const createArray = (length: number) => [...Array(length)];
 
-function App({ toTotalStar = 5 }) {
+export default function StartRating({ toTotalStar = 5 }) {
   const [selectStatr, setSelectStatr] = useState(0);
   return (
     <>
@@ -24,5 +20,3 @@ function App({ toTotalStar = 5 }) {
     </>
   );
 }
-
-export default App;
