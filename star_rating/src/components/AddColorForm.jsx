@@ -1,15 +1,10 @@
-import type { FormEvent } from "react";
 import useInput from "../Hook/useInput.tsx";
 
-interface IAddColorFormProps {
-  onNewColors?: (title: string, color: string) => void;
-}
-
-export default function AddColorForm({ onNewColors }: IAddColorFormProps) {
+export default function AddColorForm({ onNewColors }) {
   const [titleProps, resetTitle] = useInput("");
   const [colorProps, resetColor] = useInput("#000000");
 
-  const submit = (e: FormEvent) => {
+  const submit = (e) => {
     e.preventDefault();
     if (!onNewColors) return;
     onNewColors(titleProps.value, colorProps.value);

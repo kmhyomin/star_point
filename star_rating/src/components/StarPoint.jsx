@@ -1,16 +1,12 @@
 import { FaStar } from "react-icons/fa";
 
-export const Star = ({ selected = false, onSelect = (f: any) => f }) => {
+export const Star = ({ selected = false, onSelect = (f) => f }) => {
   return <FaStar color={selected ? "red" : "grey"} onClick={onSelect} />;
 };
 
-const createArray = (length: number) => [...Array(length)];
+const createArray = (length) => [...Array(length)];
 
-function StarPoint({
-  toTotalStar = 5,
-  selectedStars = 0,
-  onRate = (f: any) => f,
-}) {
+function StarPoint({ toTotalStar = 5, selectedStars = 0, onRate = (f) => f }) {
   return (
     <>
       {createArray(toTotalStar).map((_, i) => (

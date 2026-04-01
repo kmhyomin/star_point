@@ -1,11 +1,6 @@
 import { FaTrash } from "react-icons/fa";
-import type { ColorItem } from "../data/colorTree";
 import StarPoint from "./StarPoint";
 
-interface ColorProps extends ColorItem {
-  onRemove: (id: string) => void;
-  onRate: (id: string, rating: number) => void;
-}
 export default function Color({
   id,
   title,
@@ -13,7 +8,7 @@ export default function Color({
   rating,
   onRemove = (f) => f,
   onRate = (f) => f,
-}: ColorProps) {
+}) {
   return (
     <section>
       <h1>{title}</h1>
