@@ -1,13 +1,15 @@
-import useInput from "../Hook/useInput.tsx";
+import useColor from "../Hook/useColor.jsx";
+import useInput from "../Hook/useInput.jsx";
 
-export default function AddColorForm({ onNewColors }) {
+export default function AddColorForm() {
   const [titleProps, resetTitle] = useInput("");
   const [colorProps, resetColor] = useInput("#000000");
+  const { addColor } = useColor();
+  // 이 줄이 추가됨으로써 함수를 prop로 받지 않고도 색을 지익저업추가할 수 있다.
 
   const submit = (e) => {
     e.preventDefault();
-    if (!onNewColors) return;
-    onNewColors(titleProps.value, colorProps.value);
+    addColor(titleProps.value, colorProps.value);
     resetTitle();
     resetColor();
   };

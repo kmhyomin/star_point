@@ -1,18 +1,16 @@
 import { FaTrash } from "react-icons/fa";
 import StarPoint from "./StarPoint";
+import useColor from "../Hook/useColor.jsx";
 
-export default function Color({
-  id,
-  title,
-  color,
-  rating,
-  onRemove = (f) => f,
-  onRate = (f) => f,
-}) {
+export default function Color({ id, title, color, rating }) {
+  const { rateColor, removeColor } = useColor();
+  // porps로 받던 삭제와 점수 매기기를 직접 얻을 수 있다.
+  // 고로 함수 props을 부모에게 받지 않아도 된다.
+
   return (
     <section>
       <h1>{title}</h1>
-      <button onClick={() => onRemove(id)}>
+      <button onClick={() => removeColor(id)}>
         <FaTrash />
       </button>
       <div
@@ -23,7 +21,7 @@ export default function Color({
       />
       <StarPoint
         selectedStars={rating}
-        onRate={(rating) => onRate(id, rating)}
+        onRate={(rating) => rateColor(id, rating)}
       />
     </section>
   );
